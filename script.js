@@ -13,7 +13,17 @@ let firstPlayerTurn = true,
   playerx = [],
   playero = [],
   p1Score = Number(document.querySelector(".p1Score").textContent),
-  p2Score = Number(document.querySelector(".p2Score").textContent);
+  p2Score = Number(document.querySelector(".p2Score").textContent),
+  p1Name,
+  p2Name;
+
+const nameChange = (e) => {
+  if (e.id === "p1Name") {
+    p1Name = e.value;
+  } else {
+    p2Name = e.value;
+  }
+};
 
 // click start game
 const startGame = () => {
@@ -65,13 +75,13 @@ const scoreboard = () => {
   winKeys.forEach((w) => {
     if (checker(playerx, w)) {
       gameOver = true;
-      winner.textContent = "Player 1 wins!";
+      winner.textContent = `${p1Name} wins!`;
       p1Score = p1Score + 1;
       document.querySelector(".p1Score").textContent = p1Score;
     }
     if (checker(playero, w)) {
       gameOver = true;
-      winner.textContent = "Player 2 wins!";
+      winner.textContent = `${p2Name} wins!`;
       p2Score = p2Score + 1;
       document.querySelector(".p2Score").textContent = p2Score;
     }

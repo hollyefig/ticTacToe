@@ -75,9 +75,26 @@ body {
     justify-items: center;
 }
 
-.p1box h3,
-.p2box h3 {
-    display: block;
+.p1box #p1Name,
+.p2box #p2Name {
+    font-size: 1.5rem;
+    font-family: 'Unbounded', cursive;
+    font-weight: var(--bold);
+    width: 70%;
+    padding:0em 0em 0em .5em;
+    margin:0px 0px 1em 0px;
+    border:none;
+    border-bottom:1px solid #000;
+}
+
+.p1box #p1Name:focus,
+.p2box #p2Name:focus {
+    outline: none;
+    border-bottom:1px solid rgb(229, 93, 173);
+}
+
+.p2box #p2Name:focus {
+    border-bottom:1px solid rgb(93, 172, 229);
 }
 
 .p1box > div,
@@ -279,4 +296,5 @@ body {
     justify-content: center;
     align-items: center;
     font-size: 6rem;
+    text-shadow: 1px 1px 3px rgb(66 66 66 / 30%);
 }
