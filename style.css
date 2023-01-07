@@ -27,6 +27,18 @@ body {
     align-items: center;
     grid-template-rows: 1fr 5fr;
     grid-template-columns: 1fr;
+    overflow-y: hidden;
+    position: relative;
+    transition: all 1s linear;
+}
+
+.wrapperStart {
+    grid-template-rows: 1fr 0fr;
+}
+
+
+.wrapper > div:last-child {
+    align-items: flex-start;
 }
 
 .topbar {
@@ -147,6 +159,38 @@ body {
     border-radius: 30px;
 }
 
+.startAndScore {
+    display: grid;
+    grid-template-rows: 60%;
+    height: 100%;
+    overflow-y: hidden;
+    align-content: center;
+}
+
+.startButton {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity:1;
+    transition:all .2s linear;
+}
+
+.startButton button,
+.resetButton button {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    -o-appearance: none;
+    appearance: none;
+    width: 100%;
+    border:1px solid #ccc;
+    background-color: transparent;
+    border-radius: 10px;
+    cursor: pointer;
+    padding:.5em 0em;
+    text-transform: uppercase;
+    font-family: 'Unbounded', cursive;
+}
+
 .scoreboard {
     display: grid;
     grid-template-columns: 1fr 3fr 1fr;
@@ -154,6 +198,8 @@ body {
     justify-items: center;
     row-gap: 1em;
     column-gap: .5em;
+    opacity:1;
+    transition: all .3s linear;
 }
 
 .p1Score, .p2Score {
@@ -179,25 +225,34 @@ body {
     width: 100%;
 }
 
-.resetButton button {
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    -o-appearance: none;
-    appearance: none;
-    width: 100%;
-    border:1px solid #ccc;
-    background-color: transparent;
-    border-radius: 10px;
-    cursor: pointer;
-    padding:.5em 0em;
+.startButton button:hover,
+.resetButton button:hover {
+    border-color: transparent;
+    background-color: #000;
+    color:#fff;
+}
+
+.displayNone {
+    display: none;
+}
+
+.opacityOff {
+    opacity: 0;
 }
 
 /* bottom  */
 
 .bottom {
-    display: grid;
+    display: flex;
     justify-content: center;
     align-items: center;
+    overflow-y:hidden;
+    position: relative;
+    width: 100%;
+}
+
+.bottomHeight {
+    height: inherit;
 }
 
 .boardWrapper {
@@ -208,6 +263,13 @@ body {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: repeat(3, 1fr);
+    position: absolute;
+    top:0vh;
+    transition: all .5s ease-out;
+}
+
+.boardWrapperTop {
+    top:100vh;
 }
 
 .boardWrapper > div {

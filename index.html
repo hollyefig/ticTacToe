@@ -15,7 +15,7 @@
     <title>Tic Tac Toe</title>
 </head>
 <body>
-    <div class="wrapper">
+    <div class="wrapper wrapperStart" id="wrapper">
         <div class="topbar">
             <div>
             <h1>Tic Tac Toe</h1>
@@ -41,7 +41,11 @@
                     </div>
                 </div>
             </div>
-            <div class="scoreboard">
+        <div class="startAndScore">
+            <div class="startButton" id="startButton">
+                <button type="button" onclick="startGame()">start</button>
+            </div>
+            <div class="scoreboard opacityOff displayNone" id="scoreBoard">
                 <div class="p1Score">0</div>
                 <div class="winner"></div>
                 <div class="p2Score">0</div>
@@ -49,6 +53,8 @@
                     <button type="button" onclick="clearBoard()">Reset</button>
                 </div>
             </div>
+
+        </div>
                
             <div class="p2box">
                 <h3>Player 2</h3>
@@ -73,8 +79,8 @@
             </div>
         </div>
 
-        <div class="bottom">
-            <div class="boardWrapper"></div>
+        <div class="bottom" id="bottom">
+            <div class="boardWrapper boardWrapperTop" id="boardWrapper"></div>
         </div>
     </div>
     

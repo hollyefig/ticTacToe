@@ -1,4 +1,6 @@
-const boardWrapper = document.querySelector(".boardWrapper"),
+const wrapper = document.getElementById("wrapper"),
+  bottom = document.getElementById("bottom"),
+  boardWrapper = document.querySelector(".boardWrapper"),
   winner = document.querySelector(".winner"),
   p1Select = document.getElementById("p1Select"),
   p1Color = document.getElementById("p1Color"),
@@ -12,6 +14,27 @@ let firstPlayerTurn = true,
   playero = [],
   p1Score = Number(document.querySelector(".p1Score").textContent),
   p2Score = Number(document.querySelector(".p2Score").textContent);
+
+// click start game
+const startGame = () => {
+  wrapper.classList.remove("wrapperStart");
+  setTimeout(() => {
+    bottom.classList.add("bottomHeight");
+  }, 300);
+  setTimeout(() => {
+    boardWrapper.classList.remove("boardWrapperTop");
+  }, 600);
+
+  document.getElementById("startButton").classList.add("opacityOff");
+  setTimeout(() => {
+    document.getElementById("startButton").classList.add("displayNone");
+    document.getElementById("scoreBoard").classList.remove("displayNone");
+  }, 200);
+
+  setTimeout(() => {
+    document.getElementById("scoreBoard").classList.remove("opacityOff");
+  }, 400);
+};
 
 const winKeys = [
   [0, 1, 2],
