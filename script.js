@@ -1,5 +1,4 @@
-const wrapper = document.getElementById("wrapper"),
-  bottom = document.getElementById("bottom"),
+const bottom = document.getElementById("bottom"),
   boardWrapper = document.querySelector(".boardWrapper"),
   winner = document.querySelector(".winner"),
   p1Select = document.getElementById("p1Select"),
@@ -14,20 +13,17 @@ let firstPlayerTurn = true,
   playero = [],
   p1Score = Number(document.querySelector(".p1Score").textContent),
   p2Score = Number(document.querySelector(".p2Score").textContent),
-  p1Name,
-  p2Name;
+  p1Name = "Player 1",
+  p2Name = "Player 2";
 
 const nameChange = (e) => {
-  if (e.id === "p1Name") {
-    p1Name = e.value;
-  } else {
-    p2Name = e.value;
-  }
+  e.id === "p1Name" ? (p1Name = e.value) : (p2Name = e.value);
 };
 
 // click start game
 const startGame = () => {
-  wrapper.classList.remove("wrapperStart");
+  document.getElementById("wrapper").classList.remove("wrapperStart");
+  document.getElementById("topbar").classList.remove("topbarStart");
   setTimeout(() => {
     bottom.classList.add("bottomHeight");
   }, 300);
