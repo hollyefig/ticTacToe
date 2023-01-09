@@ -257,7 +257,6 @@ body {
 
 .winner h4 {
     font-weight: var(--regular);
-    line-height: 2em;
 }
 
 .resetButton {
