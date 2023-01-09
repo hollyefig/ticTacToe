@@ -1,6 +1,6 @@
 const bottom = document.getElementById("bottom"),
   boardWrapper = document.querySelector(".boardWrapper"),
-  winner = document.querySelector(".winner"),
+  winner = document.querySelector(".winsh4"),
   p1Select = document.getElementById("p1Select"),
   p1Color = document.getElementById("p1Color"),
   p2Select = document.getElementById("p2Select"),
@@ -16,6 +16,7 @@ let firstPlayerTurn = true,
   p1Name = "Player 1",
   p2Name = "Player 2";
 
+// name changer
 const nameChange = (e) => {
   e.id === "p1Name" ? (p1Name = e.value) : (p2Name = e.value);
 };
@@ -60,6 +61,7 @@ const clearBoard = () => {
   playerx = [];
   playero = [];
   winner.textContent = "";
+  document.querySelector(".winnerName").textContent = "";
   gameOver = false;
   firstPlayerTurn = true;
 };
@@ -67,23 +69,31 @@ const clearBoard = () => {
 // score tracker
 const scoreboard = () => {
   const checker = (arr, target) => target.every((v) => arr.includes(v));
+  const box = new Array(...document.querySelectorAll(".box"));
 
   winKeys.forEach((w) => {
     if (checker(playerx, w)) {
       gameOver = true;
-      winner.textContent = `${p1Name} wins!`;
-      p1Score = p1Score + 1;
+      document.querySelector(".winnerName").textContent = p1Name;
+      winner.textContent = "wins!";
+      p1Score += 1;
       document.querySelector(".p1Score").textContent = p1Score;
     }
     if (checker(playero, w)) {
       gameOver = true;
-      winner.textContent = `${p2Name} wins!`;
-      p2Score = p2Score + 1;
+      document.querySelector(".winnerName").textContent = p2Name;
+      winner.textContent = "wins!";
+      p2Score += 1;
       document.querySelector(".p2Score").textContent = p2Score;
     }
+    if (
+      checker(playerx, w) === false &&
+      checker(playero, w) === false &&
+      box.every((e) => e.textContent !== "")
+    ) {
+      document.querySelector(".winnerName").textContent = "Tie game!";
+    }
   });
-
-  console.log(p1Score);
 };
 
 // create the game
